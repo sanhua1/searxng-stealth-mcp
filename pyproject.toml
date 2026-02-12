@@ -1,12 +1,12 @@
 [project]
 name = "searxng-stealth-mcp"
-version = "1.2.0"
-description = "SearXNG Stealth MCP server (Python version)"
+version = "1.3.0"
+description = "SearXNG Stealth MCP server (HTTP/2 Pro version)"
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
     "mcp",
-    "requests"
+    "httpx[http2]",
 ]
 
 [project.scripts]
