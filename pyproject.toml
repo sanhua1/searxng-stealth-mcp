@@ -1,16 +1,16 @@
 [project]
 name = "searxng-stealth-mcp"
-version = "1.1.4"
-description = "SearXNG Stealth MCP server"
+version = "1.2.0"
+description = "SearXNG Stealth MCP server (Python version)"
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
     "mcp",
-    "requests",
+    "requests"
 ]
 
 [project.scripts]
-searxng-stealth-mcp = "searxng_stealth_mcp:main"
+searxng-stealth-mcp = "searxng_stealth_mcp.main:main"
 
 [build-system]
 requires = ["hatchling"]
