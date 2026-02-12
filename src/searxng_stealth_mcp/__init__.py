@@ -3,7 +3,7 @@ import os
 import sys
 from mcp.server.stdio import stdio_server
 from mcp.server import Server
-from mcp.types import Tool, TextContent, CallToolRequestSchema
+from mcp.types import Tool, TextContent
 import requests
 
 # Get config from env
