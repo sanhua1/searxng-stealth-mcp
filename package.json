@@ -4,7 +4,7 @@
   "description": "SearXNG Stealth MCP server for AI agents (Node.js version)",
   "type": "module",
   "bin": {
-    "searxng-stealth-mcp": "./index.js"
+    "searxng-stealth-mcp": "index.js"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.0.1",

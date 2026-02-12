@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import { Server } from "@modelcontextprotocol/sdk/server/index.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import {
@@ -16,7 +17,7 @@ const AUTH_TOKEN = Buffer.from(`${AUTH_USER}:${AUTH_PASS}`).toString("base64");
 const server = new Server(
   {
     name: "searxng-stealth-js",
-    version: "2.0.0",
+    version: "2.0.1",
   },
   {
     capabilities: {
@@ -48,7 +49,7 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
     throw new Error("Tool not found");
   }
 
-  const { query } = request.params.arguments as { query: string };
+  const { query } = request.params.arguments;
 
   try {
     const response = await axios.get(`${SEARXNG_URL}/search`, {
@@ -66,7 +67,7 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
     });
 
     const results = (response.data.results || []).slice(0, MAX_RESULTS);
-    const output = results.map((r: any) => 
+    const output = results.map((r) => 
       `Title: ${r.title}\nURL: ${r.url}\nSnippet: ${r.content}\n`
     ).join("\n---\n");
 
@@ -78,7 +79,7 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
         },
       ],
     };
-  } catch (error: any) {
+  } catch (error) {
     return {
       content: [
         {
