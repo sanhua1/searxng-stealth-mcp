@@ -62,7 +62,10 @@ async def handle_call_tool(name: str, arguments: dict | None) -> list[TextConten
     except Exception as e:
         return [TextContent(type="text", text=f"Error: {str(e)}")]
 
-async def main():
+def main():
+    asyncio.run(_run())
+
+async def _run():
     async with stdio_server() as (read_stream, write_stream):
         await server.run(
             read_stream,
@@ -71,4 +74,4 @@ async def main():
         )
 
 if __name__ == "__main__":
-    asyncio.run(main())
+    main()
